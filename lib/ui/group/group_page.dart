@@ -26,7 +26,7 @@ class _GroupPageState extends State<GroupPage> {
           stream: _groupsDao.watchGroup(widget.groupId),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return Text("Loading...");
+              return const Text("Loading...");
             }
             return Column(
               mainAxisSize: MainAxisSize.max,
@@ -52,7 +52,7 @@ class _GroupPageState extends State<GroupPage> {
                         _groupsDao.adjustBalance(balance + amount, widget.groupId);
                         _incomeController.text = "";
                       },
-                      child: Text("Add income")),
+                      child: const Text("Add income")),
                 ]),
                 Row(children: [
                   Expanded(
@@ -73,7 +73,7 @@ class _GroupPageState extends State<GroupPage> {
                         _groupsDao.adjustBalance(balance - amount, widget.groupId);
                         _expenseController.text = "";
                       },
-                      child: Text("Add expense")),
+                      child: const Text("Add expense")),
                 ]),
               ],
             );
