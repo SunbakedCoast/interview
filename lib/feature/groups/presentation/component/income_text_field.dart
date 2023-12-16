@@ -50,15 +50,24 @@ class IncomeTextField extends HookConsumerWidget {
         ),
         const SizedBox(height: 24),
         ElevatedButton(
-          onPressed: () {
-            final income = int.parse(textFieldState.income);
-            textFieldNotifier.reset();
-            notifier.adjustBalance(
-              balance: income + balance,
-              groupId: groupId,
-            );
-          },
-          child: const Text('Add Income'),
+          onPressed: textFieldState.hasValue
+              ? () {
+                  final income = int.parse(textFieldState.income);
+                  textFieldNotifier.reset();
+                  notifier.adjustBalance(
+                    balance: income + balance,
+                    groupId: groupId,
+                  );
+                }
+              : () {},
+          child: textFieldState.hasValue
+              ? const Text('Add Income')
+              : const Text(
+                  'No income detected.',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
         ),
       ],
     );

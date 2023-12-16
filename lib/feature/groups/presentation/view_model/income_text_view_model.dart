@@ -15,5 +15,11 @@ class IncomeTextFieldViewModel extends StateNotifier<IncomeTextFieldModel> {
 
   void reset() => state = const IncomeTextFieldModel.initial();
 
-  void onChanged(String text) => state = state.copyWith(income: text);
+  void onChanged(String text) {
+    if (text.isEmpty || text == '') {
+      state = state.copyWith(income: text, hasValue: false);
+    } else {
+      state = state.copyWith(income: text, hasValue: true);
+    }
+  }
 }

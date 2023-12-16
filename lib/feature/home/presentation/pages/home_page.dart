@@ -14,7 +14,7 @@ class NewHomePage extends HookConsumerWidget {
 
     useEffect(
       () {
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           notifier.getAll();
         });
         return;

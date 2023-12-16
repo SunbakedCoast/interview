@@ -15,5 +15,11 @@ class ExpenseTextFieldStateNotifier
 
   void reset() => state = const ExpensesTextFieldModel.initial();
 
-  void onChanged(String text) => state = state.copyWith(expense: text);
+  void onChanged(String text) {
+    if (text.isEmpty || text == '') {
+      state = state.copyWith(expense: text, hasValue: false);
+    } else {
+      state = state.copyWith(expense: text, hasValue: true);
+    }
+  }
 }

@@ -15,10 +15,15 @@ class NewGroupPage extends HookConsumerWidget {
     final state = ref.watch(groupProvider);
     final notifier = ref.read(groupProvider.notifier);
 
+    final incomeNotifier = ref.read(incomeTextFieldProvider.notifier);
+    final expensesNotifier = ref.read(expensesTextFieldProvider.notifier);
+
     useEffect(
       () {
-        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
           notifier.getGroup(groupId: groupId);
+          incomeNotifier.reset();
+          expensesNotifier.reset();
         });
         return;
       },

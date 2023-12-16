@@ -50,15 +50,24 @@ class ExpensesTextField extends HookConsumerWidget {
         ),
         const SizedBox(height: 24),
         ElevatedButton(
-          onPressed: () {
-            final expense = int.parse(textFieldState.expense);
-            textFieldNotifier.reset();
-            notifier.adjustBalance(
-              balance: balance - expense,
-              groupId: groupId,
-            );
-          },
-          child: const Text('Add Expenses'),
+          onPressed: textFieldState.hasValue
+              ? () {
+                  final expense = int.parse(textFieldState.expense);
+                  textFieldNotifier.reset();
+                  notifier.adjustBalance(
+                    balance: balance - expense,
+                    groupId: groupId,
+                  );
+                }
+              : () {},
+          child: textFieldState.hasValue
+              ? const Text('Add Expenses')
+              : const Text(
+                  'No expenses detected',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
         ),
       ],
     );
