@@ -5,13 +5,14 @@ import 'package:balance/feature/groups/domain/repository/repository.dart';
 import 'package:balance/feature/groups/dependendcy_injection/dependency_injection.dart';
 
 final transactionProvider =
-    StateNotifierProvider<TransactionNotifier, Stream<Transaction?>>((ref) {
+    StateNotifierProvider<TransactionStateNotifier, Stream<Transaction?>>(
+        (ref) {
   final repository = ref.read(transactionsRepositoryDI);
-  return TransactionNotifier(repository: repository);
+  return TransactionStateNotifier(repository: repository);
 });
 
-class TransactionNotifier extends StateNotifier<Stream<Transaction?>> {
-  TransactionNotifier({
+class TransactionStateNotifier extends StateNotifier<Stream<Transaction?>> {
+  TransactionStateNotifier({
     required this.repository,
     Stream<Transaction?>? state,
   }) : super(state ?? const Stream<Transaction?>.empty());
