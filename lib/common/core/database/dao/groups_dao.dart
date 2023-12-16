@@ -10,7 +10,7 @@ part 'groups_dao.g.dart';
 @lazySingleton
 @DriftAccessor(tables: [Groups])
 class GroupsDao extends DatabaseAccessor<Database> with _$GroupsDaoMixin {
-  GroupsDao() : super(Database());
+  GroupsDao(super.db);
 
   Future<dynamic> insert(String name) {
     return into(groups)

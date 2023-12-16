@@ -26,8 +26,9 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     gh.lazySingleton<_i3.Database>(() => _i3.Database());
-    gh.lazySingleton<_i4.GroupsDao>(() => _i4.GroupsDao());
-    gh.lazySingleton<_i5.TransactionsDao>(() => _i5.TransactionsDao());
+    gh.lazySingleton<_i4.GroupsDao>(() => _i4.GroupsDao(gh<_i3.Database>()));
+    gh.lazySingleton<_i5.TransactionsDao>(
+        () => _i5.TransactionsDao(gh<_i3.Database>()));
     return this;
   }
 }

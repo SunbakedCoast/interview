@@ -1,13 +1,15 @@
-import 'package:balance/common/core/database/database.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:balance/common/dependency_injection/dependency_injection.dart';
 import 'package:balance/common/domain/repository/repository.dart';
+import 'package:balance/common/core/database/database.dart';
 
 final groupProvider =
     StateNotifierProvider<GroupStateNotifier, Stream<Group?>>((ref) {
   final repository = ref.read(groupRepositoryDI);
-  return GroupStateNotifier(repository: repository);
+  return GroupStateNotifier(
+    repository: repository,
+  );
 });
 
 class GroupStateNotifier extends StateNotifier<Stream<Group?>> {

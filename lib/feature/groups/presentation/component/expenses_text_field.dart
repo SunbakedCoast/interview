@@ -22,6 +22,7 @@ class ExpensesTextField extends HookConsumerWidget {
     final textFieldNotifier = ref.read(expensesTextFieldProvider.notifier);
 
     final notifier = ref.read(groupProvider.notifier);
+    final transactionNotifier = ref.read(transactionProvider.notifier);
 
     final controller = useTextEditingController();
 
@@ -58,6 +59,7 @@ class ExpensesTextField extends HookConsumerWidget {
                     balance: balance - expense,
                     groupId: groupId,
                   );
+                  transactionNotifier.insert(amount: expense, groupId: groupId);
                 }
               : () {},
           child: textFieldState.hasValue

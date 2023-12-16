@@ -14,6 +14,7 @@ class NewGroupPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(groupProvider);
     final notifier = ref.read(groupProvider.notifier);
+    final transactionsNotifier = ref.read(transactionsProvider.notifier);
 
     final incomeNotifier = ref.read(incomeTextFieldProvider.notifier);
     final expensesNotifier = ref.read(expensesTextFieldProvider.notifier);
@@ -22,6 +23,7 @@ class NewGroupPage extends HookConsumerWidget {
       () {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           notifier.getGroup(groupId: groupId);
+          transactionsNotifier.getAll();
           incomeNotifier.reset();
           expensesNotifier.reset();
         });
@@ -55,6 +57,8 @@ class NewGroupPage extends HookConsumerWidget {
                   groupId: groupId,
                   balance: balance,
                 ),
+                const SizedBox(height: 20),
+                _Transactions(),
               ],
             );
           },
@@ -99,4 +103,9 @@ class _ExpensesField extends StatelessWidget {
         groupId: groupId,
         balance: balance,
       );
+}
+
+class _Transactions extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => const TransactionsList();
 }

@@ -10,7 +10,7 @@ part 'transactions_dao.g.dart';
 @DriftAccessor(tables: [Transactions])
 class TransactionsDao extends DatabaseAccessor<Database>
     with _$TransactionsDaoMixin {
-  TransactionsDao() : super(Database());
+  TransactionsDao(super.db);
 
   Future<dynamic> insert(int amount, String groupId) {
     return into(transactions).insert(
