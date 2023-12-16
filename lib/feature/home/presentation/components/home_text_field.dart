@@ -10,8 +10,21 @@ class HomeTextField extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(groupTextFieldProvider);
     final notifier = ref.read(groupTextFieldProvider.notifier);
+
+    
     final controller = useTextEditingController();
+
+    useEffect(
+      () {
+        if (controller.text != state.groupName) {
+          controller.text = state.groupName;
+        }
+        return;
+      },
+      [state],
+    );
 
     return Column(
       children: [

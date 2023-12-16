@@ -26,6 +26,7 @@ class GroupTextFieldStateNotifier extends StateNotifier<GroupTextFieldModel> {
   Future<void> onSubmit() async {
     try {
       await repository.insert(name: state.groupName);
+      reset();
     } catch (e) {
       throw Exception(e);
     }
