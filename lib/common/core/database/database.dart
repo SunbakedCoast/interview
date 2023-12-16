@@ -1,12 +1,13 @@
 import 'dart:io';
 
-import 'package:balance/core/database/tables/groups.dart';
-import 'package:balance/core/database/tables/transactions.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
+
+import 'package:balance/common/core/database/tables/groups.dart';
+import 'package:balance/common/core/database/tables/transactions.dart';
 
 part 'database.g.dart';
 
@@ -15,10 +16,11 @@ part 'database.g.dart';
 class Database extends _$Database {
   Database() : super(_openConnection());
 
-  static Future<String> resourcePath(String name) async => p.join(await _resourcesPath, name);
+  static Future<String> resourcePath(String name) async =>
+      p.join(await _resourcesPath, name);
 
   static Future<String> get _resourcesPath async {
-    final path = p.join(await _rootPath, "resources");
+    final path = p.join(await _rootPath, 'resources');
     final dir = Directory(path);
     await dir.create();
     return dir.path;
