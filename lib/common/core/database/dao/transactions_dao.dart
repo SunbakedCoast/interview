@@ -1,8 +1,9 @@
-import 'package:balance/common/core/database/database.dart';
-import 'package:balance/common/core/database/tables/transactions.dart';
 import 'package:drift/drift.dart';
 import 'package:injectable/injectable.dart';
 import 'package:uuid/uuid.dart';
+
+import 'package:balance/common/core/database/database.dart';
+import 'package:balance/common/core/database/tables/transactions.dart';
 
 part 'transactions_dao.g.dart';
 
@@ -21,6 +22,12 @@ class TransactionsDao extends DatabaseAccessor<Database>
         groupId: groupId,
       ),
     );
+  }
+
+  Future<dynamic> updateAmount(int amount, String transactionId) async {
+    final companion = TransactionsCompanion(amount: Value(amount));
+    return (update(transactions)..where((tbl) => tbl.id.equals(transactionId)))
+        .write(companion);
   }
 
   Stream<List<Transaction>> watchh() => select(transactions).watch();

@@ -21,4 +21,14 @@ class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Stream<Transaction?> watchTransaction({required String transactionId}) =>
       _localSource.watchTransaction(transactionId);
+
+  @override
+  Future<dynamic> updateAmount({
+    required int amount,
+    required String transactionId,
+  }) =>
+      _localSource.updateAmount(
+        amount: amount,
+        transactionId: transactionId,
+      );
 }

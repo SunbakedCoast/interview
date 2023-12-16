@@ -21,4 +21,8 @@ class TransactionNotifier extends StateNotifier<Stream<Transaction?>> {
   void insert({required int amount, required String groupId}) {
     repository.insert(amount: amount, groupId: groupId);
   }
+
+  void updateAmount({required int amount, required String transactionId}) {
+    repository.updateAmount(amount: amount, transactionId: transactionId);
+  }
 }

@@ -12,6 +12,12 @@ class TransactionsLocalSource {
 
   Stream<List<Transaction>> watch() => _transactionsDao.watchh();
 
+  Future<dynamic> updateAmount({
+    required int amount,
+    required String transactionId,
+  }) =>
+      _transactionsDao.updateAmount(amount, transactionId);
+
   Stream<Transaction?> watchTransaction(String transactionId) =>
       _transactionsDao.watchTransaction(transactionId);
 }
