@@ -1,18 +1,10 @@
 import 'package:balance/router.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:balance/main.config.dart';
-
-final getIt = GetIt.instance;
-
 @InjectableInit()
-void setupModules() => getIt.init();
-
 void main() {
-  setupModules();
   runApp(const MyApp());
 }
 

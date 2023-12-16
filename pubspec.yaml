@@ -14,7 +14,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.3
-  get_it: #* REPLACE
   go_router: ^12.1.1 
   hooks_riverpod: ^2.4.9
   injectable:
