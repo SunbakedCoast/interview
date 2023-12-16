@@ -11,7 +11,13 @@ class GroupPageHeader extends StatelessWidget {
     return Column(
       children: [
         Text(name),
-        Text(balance.toString()),
+        Text(
+          balance.toString(),
+          style: const TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }
