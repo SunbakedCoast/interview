@@ -56,7 +56,6 @@ class IncomeTextField extends HookConsumerWidget {
               balance: income + balance,
               groupId: groupId,
             );
-            print('income_operation: $income + $balance = $balance');
           },
           child: const Text('Add Income'),
         ),

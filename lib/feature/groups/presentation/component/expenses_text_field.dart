@@ -53,11 +53,9 @@ class ExpensesTextField extends HookConsumerWidget {
             final expense = int.parse(textFieldState.expense);
             textFieldNotifier.reset();
             notifier.adjustBalance(
-              balance: expense - balance,
+              balance: balance - expense,
               groupId: groupId,
             );
-            print(
-                'expense_operation: $expense - $balance = $balance');
           },
           child: const Text('Add Expenses'),
         ),
