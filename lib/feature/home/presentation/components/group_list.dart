@@ -14,8 +14,12 @@ class GroupList extends HookConsumerWidget {
     return StreamBuilder(
       stream: state,
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return const Text('loading...');
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.connectionState == ConnectionState.none ||
+            !snapshot.hasData) {
+          return const Center(child: Text('No data exists'));
         }
 
         return Expanded(

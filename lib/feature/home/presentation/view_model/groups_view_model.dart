@@ -19,7 +19,11 @@ class GroupsStateNotifer extends StateNotifier<Stream<List<Group>>> {
   final GroupsRepository repository;
 
   void getAll() {
-    final data = repository.watch();
-    state = data;
+    try {
+      final data = repository.watch();
+      state = data;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 }
