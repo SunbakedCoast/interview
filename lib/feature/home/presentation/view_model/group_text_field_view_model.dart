@@ -21,7 +21,19 @@ class GroupTextFieldStateNotifier extends StateNotifier<GroupTextFieldModel> {
 
   void reset() => state = const GroupTextFieldModel.initial();
 
-  void onChanged(String text) => state = state.copyWith(groupName: text);
+  void onChanged(String text) {
+    if (text.isEmpty || text == '') {
+      state = state.copyWith(
+        groupName: text,
+        hasValue: false,
+      );
+    } else {
+      state = state.copyWith(
+        groupName: text,
+        hasValue: true,
+      );
+    }
+  }
 
   Future<void> onSubmit() async {
     try {

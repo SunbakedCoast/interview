@@ -13,7 +13,6 @@ class HomeTextField extends HookConsumerWidget {
     final state = ref.watch(groupTextFieldProvider);
     final notifier = ref.read(groupTextFieldProvider.notifier);
 
-    
     final controller = useTextEditingController();
 
     useEffect(
@@ -35,8 +34,13 @@ class HomeTextField extends HookConsumerWidget {
         ),
         const SizedBox(height: 24),
         ElevatedButton(
-          onPressed: notifier.onSubmit,
-          child: const Text('Create'),
+          onPressed: state.hasValue ? notifier.onSubmit : () {},
+          child: state.hasValue
+              ? const Text('Create')
+              : const Text(
+                  'No group name detected',
+                  style: TextStyle(color: Colors.grey),
+                ),
         ),
       ],
     );
