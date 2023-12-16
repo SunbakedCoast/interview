@@ -3,13 +3,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:balance/feature/groups/domain/model/model.dart';
 
 final incomeTextFieldProvider =
-    StateNotifierProvider<IncomeTextFieldViewModel, IncomeTextFieldModel>(
+    StateNotifierProvider<IncomeTextFieldStateNotifier, IncomeTextFieldModel>(
         (ref) {
-  return IncomeTextFieldViewModel();
+  return IncomeTextFieldStateNotifier();
 });
 
-class IncomeTextFieldViewModel extends StateNotifier<IncomeTextFieldModel> {
-  IncomeTextFieldViewModel({
+class IncomeTextFieldStateNotifier extends StateNotifier<IncomeTextFieldModel> {
+  IncomeTextFieldStateNotifier({
     IncomeTextFieldModel? state,
   }) : super(state ?? const IncomeTextFieldModel.initial());
 
