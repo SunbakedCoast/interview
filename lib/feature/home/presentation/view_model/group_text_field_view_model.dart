@@ -1,9 +1,8 @@
-
-import 'package:balance/common/dependency_injection/group_repository_di.dart';
-import 'package:balance/feature/home/domain/model/group_text_field_model.dart';
-import 'package:balance/common/domain/repository/groups_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'package:balance/common/dependency_injection/dependency_injection.dart';
+import 'package:balance/common/domain/repository/repository.dart';
+import 'package:balance/feature/home/domain/model/model.dart';
 
 final groupTextFieldProvider =
     StateNotifierProvider<GroupTextFieldStateNotifier, GroupTextFieldModel>(

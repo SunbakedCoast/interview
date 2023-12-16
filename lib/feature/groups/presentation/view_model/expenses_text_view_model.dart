@@ -1,4 +1,5 @@
 import 'package:balance/feature/groups/domain/model/model.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final expensesTextFieldProvider = StateNotifierProvider<

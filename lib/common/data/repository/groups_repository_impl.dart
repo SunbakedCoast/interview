@@ -1,7 +1,6 @@
 import 'package:balance/common/core/database/database.dart';
-import 'package:balance/common/data/local_source/groups_local_source.dart';
-import 'package:balance/common/domain/repository/groups_repository.dart';
-
+import 'package:balance/common/data/local_source/local_source.dart';
+import 'package:balance/common/domain/repository/repository.dart';
 
 class GroupsRepositoryImpl implements GroupsRepository {
   const GroupsRepositoryImpl(GroupsLocalSource localSource)

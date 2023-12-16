@@ -1,9 +1,9 @@
-import 'package:balance/feature/home/presentation/view_model/group_text_field_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:balance/common/components/components.dart';
+import 'package:balance/feature/home/presentation/view_model/view_model.dart';
 
 class HomeTextField extends HookConsumerWidget {
   const HomeTextField({super.key});

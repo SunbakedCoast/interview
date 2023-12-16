@@ -1,7 +1,7 @@
-
-import 'package:balance/common/data/repository/groups_repository_impl.dart';
-import 'package:balance/common/dependency_injection/group_local_source_di.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:balance/common/data/repository/repository.dart';
+import 'package:balance/common/dependency_injection/dependency_injection.dart';
 
 final groupRepositoryDI = Provider((ref) {
   final localSource = ref.read(groupLocalSourceDI);

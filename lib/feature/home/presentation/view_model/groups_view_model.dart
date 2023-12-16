@@ -1,8 +1,8 @@
-import 'package:balance/common/core/database/database.dart';
-import 'package:balance/common/dependency_injection/group_repository_di.dart';
-import 'package:balance/common/domain/repository/groups_repository.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:balance/common/core/database/database.dart';
+import 'package:balance/common/dependency_injection/dependency_injection.dart';
+import 'package:balance/common/domain/repository/repository.dart';
 
 final groupsProvider =
     StateNotifierProvider<GroupsStateNotifer, Stream<List<Group>>>((ref) {

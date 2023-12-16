@@ -1,9 +1,10 @@
-import 'package:balance/common/components/components.dart';
-import 'package:balance/feature/groups/presentation/view_model/view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'package:balance/common/components/components.dart';
+import 'package:balance/feature/groups/presentation/view_model/view_model.dart';
 
 class IncomeTextField extends HookConsumerWidget {
   const IncomeTextField({
